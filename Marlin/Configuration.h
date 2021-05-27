@@ -21,7 +21,7 @@
  */
 #pragma once
 
-//#define SPRO_INVERTED_E // Enable if the extruder runs the wrong way
+#define SPRO_INVERTED_E // Enable if the extruder runs the wrong way
 //#define SPRO_TMC2209 // Enable for the TMC2209 driver version
 //#define SPRO_BLTOUCH // Enable if you want to use BLTOUCH
 
@@ -119,7 +119,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 250000
+#define BAUDRATE 115200
 //#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
 /**
@@ -908,7 +908,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-#define S_CURVE_ACCELERATION
+//#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -1265,9 +1265,9 @@
 
 // @section machine
 
-// The size of the printable area
-#define X_BED_SIZE 235
-#define Y_BED_SIZE 235
+// The size of the print bed
+#define X_BED_SIZE 220
+#define Y_BED_SIZE 220
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1275,7 +1275,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 235
+#define Z_MAX_POS 250
 
 /**
  * Software Endstops
@@ -1634,7 +1634,7 @@
 #endif
 
 // Homing speeds (mm/min)
-#define HOMING_FEEDRATE_MM_M { (50*60), (50*60), (4*60) }
+#define HOMING_FEEDRATE_MM_M { (40*60), (40*60), (10*60) }
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
@@ -1750,9 +1750,9 @@
 #define PREHEAT_1_TEMP_CHAMBER 35
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
-#define PREHEAT_2_LABEL       "ABS"
+#define PREHEAT_2_LABEL       "PETG"
 #define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    100
+#define PREHEAT_2_TEMP_BED    85
 #define PREHEAT_2_TEMP_CHAMBER 35
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
@@ -2599,6 +2599,17 @@
 
 #if ENABLED(TFT_LVGL_UI)
   //#define MKS_WIFI_MODULE  // MKS WiFi module
+ 
+  /**
+   * KEYBOARD LAYOUT
+   * 
+   * Select alternativ keyboard layout in MKS_UI
+   *  FRENCH_KEYBOARD - azerty layout
+   *  GERMAN_KEYBOARD - qwertz layout
+   *  if not defined - use qwerty layout
+   */
+  //#define FRENCH_KEYBOARD
+  #define GERMAN_KEYBOARD
 #endif
 
 /**
