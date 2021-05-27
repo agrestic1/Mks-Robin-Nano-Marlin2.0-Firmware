@@ -1,4 +1,6 @@
 # Mks-Robin-Nano-Marlin2.0-Firmware
+Forked from makerbase-mks/Mks-Robin-Nano-Marlin2.0-Firmware
+Adjusted to use with TwoTrees Sapphire Pro using 4xTMC2209 UART with sensorless homing
 ## Features
 The firmware of MKS Robin Nano, based on [Marlin2.0.x](https://github.com/MarlinFirmware/Marlin), added the [LittlevGL](https://github.com/littlevgl/lvgl), supporting colourful GUI and touch screen. It is developed on PlatformIO, we hope more and more developers will participate the development of this repository.
 
