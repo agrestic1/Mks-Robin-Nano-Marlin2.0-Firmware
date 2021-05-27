@@ -88,10 +88,6 @@
 #define E0_STEP_PIN                         PD6
 #define E0_DIR_PIN                          PD3
 
-#define E1_ENABLE_PIN                       PA3
-#define E1_STEP_PIN                         PA6
-#define E1_DIR_PIN                          PA1
-
 //
 // Temperature Sensors
 //
@@ -101,20 +97,28 @@
 
 #if HAS_TMC_UART
 
-  #define X_SERIAL_TX_PIN                   PA10
-  #define X_SERIAL_RX_PIN                   PA10
+  //#define E1_ENABLE_PIN                   PA3 // USED BY UART X Don't change
+  //#define E1_STEP_PIN                     PA6 // USED BY UART Y Don't change
+  //#define E1_DIR_PIN                      PA1 // USED BY UART Y Don't change
 
-  #define Y_SERIAL_TX_PIN                   PA9
-  #define Y_SERIAL_RX_PIN                   PA9
+  #define X_SERIAL_TX_PIN                   PA3   // aus Le3tpeak FW, https://www.youtube.com/watch?v=LlkGfj3O2lU&t=359s , war PA10, dann verkabelung wie https://www.youtube.com/watch?v=7ShcFKXrVHo
+  #define X_SERIAL_RX_PIN                   PA3   // PA10
 
-  #define Z_SERIAL_TX_PIN                   PC7
-  #define Z_SERIAL_RX_PIN                   PC7
+  #define Y_SERIAL_TX_PIN                   PA6   // PA9
+  #define Y_SERIAL_RX_PIN                   PA6   // PA9
 
-  #define E0_SERIAL_TX_PIN                  PC13
-  #define E0_SERIAL_RX_PIN                  PC13
+  #define Z_SERIAL_TX_PIN                   PA1   // PC7
+  #define Z_SERIAL_RX_PIN                   PA1   // PC7
+
+  #define E0_SERIAL_TX_PIN                  PE5   // PC13
+  #define E0_SERIAL_RX_PIN                  PE5   // PC13
 
   // Reduce baud rate to improve software serial reliability
   #define TMC_BAUD_RATE                    19200
+#else
+    #define E1_ENABLE_PIN                     PA3
+    #define E1_STEP_PIN                       PA6 
+    #define E1_DIR_PIN                        PA1 
 #endif // HAS_TMC_UART
 
 //
